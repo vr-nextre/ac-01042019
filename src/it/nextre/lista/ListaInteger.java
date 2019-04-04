@@ -63,6 +63,7 @@ public class ListaInteger {
         return tmp;
     }
 
+    //ordina valori crescente/decrescente
     public void ordina(boolean ASC){
         Integer[] tmp = new Integer[this.mem.length];
         boolean trovato=true;
@@ -87,7 +88,6 @@ public class ListaInteger {
             trovato=false;
         }
     }
-
 
     //conta occorrenze valore
     public int count(int value){
@@ -115,6 +115,7 @@ public class ListaInteger {
         this.mem=swap;
     }
 
+    //valori sotto la soglia(booleano con soglia o no)
     public Integer[] getAllValueBefore(int value, boolean WithThreshold){
         ListaInteger tmp = new ListaInteger();
         for (int i = 0; i < this.mem.length; i++) {
@@ -125,6 +126,7 @@ public class ListaInteger {
         return tmp.getAll();
     }
 
+    //valori sopra la soglia(booleano con soglia o no)
     public Integer[] getAllValueAfter(int value, boolean WithThreshold){
         ListaInteger tmp = new ListaInteger();
         for (int i = 0; i < this.mem.length; i++) {
@@ -134,25 +136,6 @@ public class ListaInteger {
         tmp.ordina(true);
         return tmp.getAll();
     }
-
-
-
-
-
-    //Bubble Sort
-    //todo ordina valori crescente
-    //todo ordina valori decrescente
-
-    //todo valori sopra la soglia(booleano con soglia o no)
-    //todo valori sotto la soglia(booleano con soglia o no)
-
-
-
-
-
-
-
-
 
     //ListaInteger[0,5,7,8,14,1]
     @Override
