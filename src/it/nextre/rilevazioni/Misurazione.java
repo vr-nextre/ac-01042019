@@ -1,9 +1,13 @@
 package it.nextre.rilevazioni;
 
+import java.util.Arrays;
+
 public class Misurazione {
 
     private Double[] mem;
     private int pos=0;
+
+    protected String precisione;
 
     //inizializzatore di istanza (non static)
     {
@@ -49,6 +53,8 @@ public class Misurazione {
         return somma/cont;
     }
 
-
-
+    @Override
+    public String toString() {
+        return Arrays.toString(mem);
+    }
 }//end class

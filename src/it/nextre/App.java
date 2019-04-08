@@ -3,6 +3,13 @@ package it.nextre;
 public class App {
     public static void main(String[] args) {
 
+
+        MisurazioneDiCalore m1 = new MisurazioneDiCalore(2);
+        m1.addValore(20);
+        m1.addValore(24);
+        System.out.println(m1);
+
+
         byte b = 126;
         b = (byte) (b + 1);
         //b++; // b = (byte)(b+1) post-incremento

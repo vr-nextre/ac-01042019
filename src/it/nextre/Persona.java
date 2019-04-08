@@ -2,7 +2,7 @@ package it.nextre;
 
 import java.util.*;
 
-public class Persona {
+public class Persona extends Object{
 
     private String nome;
     private String cognome;
@@ -10,7 +10,9 @@ public class Persona {
     double salario;
     Persona coniuge;
 
-    public Persona(){}
+    public Persona(){
+
+    }
     public Persona(Persona persona) {
         //todo fare qualcosa
     }
@@ -69,8 +71,8 @@ public class Persona {
                 ", cognome='" + cognome + '\'' +
                 ", numero_di_auto=" + numero_di_auto +
                 ", salario=" + salario +
-                ", coniuge=" + coniuge.getNome() +
-                '}';
+                ", coniuge='" + (coniuge!=null?coniuge.getNome():"") +
+                "'}";
     }
 
     @Override

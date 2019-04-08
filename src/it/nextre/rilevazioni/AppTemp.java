@@ -9,6 +9,8 @@ public class AppTemp {
 
         Misurazione mis = new Misurazione(N_MISURE);
 
+        mis.precisione="ALTA";
+
 
         for (int i=0;i<N_MISURE;i++){
             if (i<7200*6){
