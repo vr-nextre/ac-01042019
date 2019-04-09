@@ -9,12 +9,17 @@ public abstract class Carta {
 
     private String circuit;
 
-    public Carta(String code, String cvv, String expire, String owner, String circuit) {
+    double amount;  //usata dai figli
+    //non tutte le carte sono ricaricabili!!!!
+
+
+    public Carta(String code, String cvv, String expire, String owner, String circuit, double amount) {
         this.code = code;
         this.cvv = cvv;
         this.expire = expire;
         this.owner = owner;
         this.circuit = circuit;
+        this.amount=amount;
     }
 
     public String getCode() {
