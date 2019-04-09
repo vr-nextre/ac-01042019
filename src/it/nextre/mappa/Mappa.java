@@ -52,6 +52,17 @@ public class Mappa {
     }
 
 
+
+    public String[] getKeys() {
+        String[] keys = new String[this.size()];
+        for (int i = 0; i < this.size() ; i++) {
+            keys[i]=this.mem[i][0];
+        }//end for
+        return keys;
+    }
+
+
+
     public String getValue(String K) {
         for (String[] tmp : this.mem) {
             if (tmp[0].equals(K)) {
