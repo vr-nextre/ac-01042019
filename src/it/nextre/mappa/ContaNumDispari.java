@@ -3,6 +3,7 @@ package it.nextre.mappa;
 import it.nextre.lista.ListaInteger;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.stream.IntStream;
 
 public class ContaNumDispari {
@@ -69,6 +70,7 @@ public class ContaNumDispari {
         for (int i = 0; i <l.size(); i++) {
             out[i]=l.get(i);
         }//end for
+
 
         //ritorno i valori
         return out;
