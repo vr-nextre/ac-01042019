@@ -63,4 +63,42 @@ public class UserInput {
             return leggiIntero(mex);
         }
     }
+
+    public static int leggiInteroV2(String mex) {
+        System.out.println(mex);
+        Scanner s = new Scanner(System.in);
+        try {
+            return Integer.parseInt(s.nextLine().trim());
+        }catch (NumberFormatException e){
+            System.out.println("Valore non valido");
+        }
+        return leggiInteroV2(mex);
+    }
+
+
+    public static int leggiInteroPositivoV2(String mex) {
+        System.out.println(mex);
+        Scanner s = new Scanner(System.in);
+        try {
+            int tmp = Integer.parseInt(s.nextLine().trim());
+            if (tmp<0)throw new NumberFormatException();
+            return tmp;
+        }catch (NumberFormatException e){
+            System.out.println("Valore non valido, inserire un numero positivo");
+        }
+        return leggiInteroPositivoV2(mex);
+    }
+
+    public static int leggiInteroPositivoV3(String mex) {
+        //sfruttare leggiInteroV2()
+        try {
+            int tmp = leggiInteroV2(mex);
+            if (tmp<0)throw new NumberFormatException();
+            return tmp;
+        }catch (NumberFormatException e){
+            System.out.println("Valore non valido, inserire un numero positivo");
+        }
+        return leggiInteroPositivoV3(mex);
+    }
+
 }//end class
