@@ -1,9 +1,8 @@
-package it.eccezioni;
+package it.nextre.eccezioni;
 
 import it.nextre.utils.UserInput;
 
 import java.time.LocalTime;
-import java.util.InvalidPropertiesFormatException;
 
 public class AppEccezioni {
     public static String nome;
