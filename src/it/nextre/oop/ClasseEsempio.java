@@ -4,6 +4,12 @@ package it.nextre.oop;
 
 public class ClasseEsempio {
 
+
+    {
+     nome = "pippo";
+    }
+
+
     private String nome;
     private String cognome;
 
