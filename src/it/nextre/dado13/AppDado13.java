@@ -1,5 +1,7 @@
 package it.nextre.dado13;
 
+import it.nextre.interfacce.Lanciabile;
+
 public class AppDado13 {
 
 
@@ -18,9 +20,16 @@ public class AppDado13 {
         int manche = 0; //conteggio il numero di partite
         double maxCredit=game.CREDIT;
         int mancheOk = 0; //conteggio vittorie
-        Dado d1 = new Dado();
+        //Dado d1 = new Dado();
 //        Dado d2 = new Dado();
 //        Dado d3 = new Dado();
+
+        Lanciabile d1 = new Dado();
+
+        Lanciabile dl = ()->{return 5;};
+        dl.lancia();
+
+
 
         while(game.CREDIT >= game.BET) {
             game.CREDIT-=game.BET;

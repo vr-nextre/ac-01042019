@@ -1,8 +1,10 @@
 package it.nextre.dado13;
 
+import it.nextre.interfacce.Lanciabile;
+
 import java.util.Random;
 
-public class Dado {
+public class Dado implements Lanciabile {
     private Random r;
     private int N_FACCE;
     public Dado(){
