@@ -4,14 +4,27 @@ package it.nextre.iteratore;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import java.io.IOException;
 import java.util.*;
 
 public class AppIter {
+
+
+
     public static void main(String[] args) {
+        //List l2=null;
+        List l2=new ArrayList();
+        m3(l2);
+        System.out.println("fuori metodo: " +l2.size());
+
+
+        System.exit(42);
+
 
         Set<String> l1 = new TreeSet<>();
         SortedSet<String> s1 = new TreeSet<>();
@@ -143,8 +156,9 @@ public class AppIter {
 
 
 
+        //https://www.mkyong.com/java/how-to-convert-java-map-to-from-json-jackson/
         System.out.println("\n\n\n\n\n----- JACKSON ----- ---------------------------------------");
-
+        System.out.println("---> SERIALIZZAZIONE");
         ObjectMapper mapper = new ObjectMapper();
         String jsonResult = null;
         try {
@@ -155,9 +169,25 @@ public class AppIter {
         System.out.println(jsonResult);
 
 
-
-
+        System.out.println("---> DESERIALIZZAZIONE");
+        Map<String, Object> map = new HashMap<String, Object>();
+        try {
+            // convert JSON string to Map
+            map = mapper.readValue(jsonResult, new TypeReference<Map<String, Object>>(){});
+            System.out.println(map);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
     }//end main
+
+    private static void m3(List localList) {
+        //l2.add("item 1");
+        List l1=new ArrayList();
+        l1.add("Person 1");
+        //localList=l1;
+        localList.addAll(l1);
+        System.out.println("in metodo: " + localList.size() );
+    }
 }//end class

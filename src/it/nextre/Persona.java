@@ -7,8 +7,10 @@ public class Persona extends Object{
     private String nome;
     private String cognome;
     int numero_di_auto;
-    double salario;
-    Persona coniuge;
+    private double salario;
+    private Persona coniuge;
+    private String email;
+
 
     public Persona(){
 
@@ -22,6 +24,11 @@ public class Persona extends Object{
         this.numero_di_auto = numero_di_auto;
         this.salario = salario;
         this.coniuge=coniuge;
+    }
+
+    public Persona(String nome, String cognome, int numero_di_auto, double salario, Persona coniuge,String email) {
+        this(nome,cognome,numero_di_auto,salario,coniuge);
+        this.email=email;
     }
 
     public String getNome() {
@@ -64,6 +71,14 @@ public class Persona extends Object{
         this.coniuge = coniuge;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
     @Override
     public String toString() {
         return "Persona{" +
@@ -71,7 +86,9 @@ public class Persona extends Object{
                 ", cognome='" + cognome + '\'' +
                 ", numero_di_auto=" + numero_di_auto +
                 ", salario=" + salario +
+                //", coniuge='" + coniuge + //ERRORE LOOP RICORSIVO
                 ", coniuge='" + (coniuge!=null?coniuge.getNome():"") +
+                ", email='" + email +
                 "'}";
     }
 
@@ -82,7 +99,8 @@ public class Persona extends Object{
                 this.cognome,
                 this.numero_di_auto,
                 this.salario,
-                this.coniuge!=null?this.coniuge.clone():null
+                this.coniuge!=null?this.coniuge.clone():null,
+                this.email
         );
     }
 
