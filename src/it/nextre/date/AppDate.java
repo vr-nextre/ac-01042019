@@ -6,6 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAmount;
+import java.time.temporal.TemporalQuery;
 import java.time.temporal.TemporalUnit;
 import java.util.Calendar;
 import java.util.Date;
@@ -70,8 +71,43 @@ public class AppDate {
         System.out.println(ldtTomorrow);
 
 
+        System.out.println("\n\n\n--------------------------------------------\n\n");
+
+        System.out.println("Errata");
+        LocalDateTime partenzaErr = LocalDateTime.of(2019,Month.MAY.getValue(),16,12,30,0,0);
+        LocalDateTime arrivoErr = LocalDateTime.of(2019,Month.MAY.getValue(),17,5,50,0,0);
+
+        Duration voloErrato = Duration.between(partenzaErr, arrivoErr);
+        System.out.println("Durata errata: " + voloErrato);
+
+        System.out.println("\n\nCorretta");
 
 
+
+        ZonedDateTime partenza = ZonedDateTime.of(2019,Month.MAY.getValue(),16,12,30,0,0,ZoneId.of("Europe/Rome"));
+        ZonedDateTime arrivo = ZonedDateTime.of(2019,Month.MAY.getValue(),17,5,50,0,0,ZoneId.of("Asia/Shanghai"));
+
+
+        Duration volo = Duration.between(partenza,arrivo);
+        //System.out.println(volo);  //sono 11H di volo
+        //tolto 2 ore alla partanza, tolto 8 ore all'arrivo = faccio diffrenza su UTC e mi da 11h e 20 m
+        // Italia +2 GMT , SHANGHAI +8 GMT
+        // 12:30 - 02:00 = 10:30 (a Greenwich)
+        // 10:30 + 11:20 = 21:50
+        // 21:50 + 08:00 = 05:50 (a Shanghai)
+        // si atterra dopo 11h ma la è come se fosserò passate 17h
+        // 21:50 - 10:30 => 11:20
+
+
+
+        // https://docs.oracle.com/javase/8/docs/api/java/time/format/DateTimeFormatter.html
+        DateTimeFormatter dtfZonedDay = DateTimeFormatter.ofPattern("'DATA:' EEEE YYYY-MM-dd 'ORA:' HH:mm:ss [OOOO VV zz]");
+        System.out.println("Partenza di " + partenza.format(dtfZonedDay));
+        System.out.println("Arrivo di " + arrivo.format(dtfZonedDay));
+        System.out.println("Durata volo: " + volo);
+
+
+        System.out.println(ldt.format(dtfZonedDay));
 
     }//end main
 
