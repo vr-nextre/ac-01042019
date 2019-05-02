@@ -109,6 +109,16 @@ public class AppDate {
 
         System.out.println(ldt.format(dtfZonedDay));
 
+
+
+
+        Instant now = Instant.EPOCH;
+        System.out.println(now);
+
+        Duration dur = Duration.of(365, ChronoUnit.MINUTES);
+        System.out.println(dur.toHours()+"h e "+(365-(dur.toHours()*60))+"m"); //solo la parte intera
+
+
     }//end main
 
 }//end class
