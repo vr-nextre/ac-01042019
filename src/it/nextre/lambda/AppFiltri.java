@@ -5,7 +5,9 @@ import it.nextre.rilevazioni.GeneratoreUtils;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 public class AppFiltri {
 
@@ -31,6 +33,32 @@ public class AppFiltri {
             pers.add(tmp);
         }
 
+        System.out.println("Persone: ");
+        pers.forEach(System.out::println);
+
+
+        System.out.println("conteggio @gmail: "+
+                pers
+                        .stream()
+                        .filter(item->item.getEmail().endsWith("@gmail.com"))
+                .count()
+        );
+
+
+        System.out.println("conteggio stipendio sopra 1000: "+
+                pers
+                        .stream()
+                        .filter(item->item.getSalario()>1000)
+                        .count()
+        );
+
+
+        System.out.println();
+        Map<String, List<Persona>> ppp = pers.stream()
+                .collect(
+                        Collectors.groupingBy(el->el.getEmail().substring(el.getEmail().indexOf("@")), Collectors.toList() ));
+
+        System.out.println(ppp);
 
     }//end main
 

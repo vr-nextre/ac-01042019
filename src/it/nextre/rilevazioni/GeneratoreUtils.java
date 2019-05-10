@@ -50,7 +50,7 @@ public class GeneratoreUtils {
 
     public static String getDominioMail() {
         String[] listaDomini = {
-                "gmail.com", "outlook.com", "yahoo.com", "virgilio.it", "libero.it", "msn.com", "aruba.it", "live.com"};
+                "gmail.com", "outlook.com", "yahoo.com", "virgilio.it", "libero.it", "msn.com", "aruba.it", "live.com","email.com","zmail.com","gasmail.com","ail.com","gl.com","ururuarara.com"};
         return listaDomini[r.nextInt(listaDomini.length)];
     }
 

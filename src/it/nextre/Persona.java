@@ -88,7 +88,7 @@ public class Persona extends Object{
                 ", salario=" + salario +
                 //", coniuge='" + coniuge + //ERRORE LOOP RICORSIVO
                 ", coniuge='" + (coniuge!=null?coniuge.getNome():"") +
-                ", email='" + email +
+                "', email='" + email +
                 "'}";
     }
 
