@@ -91,32 +91,9 @@ public class AppRename {
     }//end main
 
 
-    private void cleanDir(File dir) {
-        for (File file: dir.listFiles()) {
-            if (file.isDirectory())
-                cleanDir(file);
-            if (file.getAbsolutePath().endsWith(".mp4"))
-                file.delete();
-        }
-    }
 
     private void step2() {
-        class ElencoOrdinato {
-            int pos;
-            String filename;
-            public ElencoOrdinato(int pos, String filename) {
-                this.pos = pos;
-                this.filename = filename;
-            }
 
-            @Override
-            public String toString() {
-                return "ElencoOrdinato{" +
-                        "pos=" + pos +
-                        ", filename='" + filename + '\'' +
-                        '}';
-            }
-        }
         List<ElencoOrdinato> elencoFile = new ArrayList<>();
         //  AQ_8gMZT-VT21.mp4
         // {pos=21, filename=AQ_8gMZT-VT21.mp4}
@@ -169,5 +146,31 @@ public class AppRename {
         return out;
     }
 
+    private void cleanDir(File dir) {
+        for (File file: dir.listFiles()) {
+            if (file.isDirectory())
+                cleanDir(file);
+            if (file.getAbsolutePath().endsWith(".mp4"))
+                file.delete();
+        }
+    }
 
 }//end class
+
+
+class ElencoOrdinato {
+    int pos;
+    String filename;
+    public ElencoOrdinato(int pos, String filename) {
+        this.pos = pos;
+        this.filename = filename;
+    }
+
+    @Override
+    public String toString() {
+        return "ElencoOrdinato{" +
+                "pos=" + pos +
+                ", filename='" + filename + '\'' +
+                '}';
+    }
+}
